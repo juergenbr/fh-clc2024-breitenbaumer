@@ -38,22 +38,10 @@ resource serverfarms_ASP_rgfhclc3example_b5db_name_resource 'Microsoft.Web/serve
   sku: {
     name: 'Y1'
     tier: 'Dynamic'
-    size: 'Y1'
-    family: 'Y'
-    capacity: 0
   }
   kind: 'functionapp'
   properties: {
-    perSiteScaling: false
-    elasticScaleEnabled: false
-    maximumElasticWorkerCount: 1
-    isSpot: false
     reserved: true
-    isXenon: false
-    hyperV: false
-    targetWorkerCount: 0
-    targetWorkerSizeId: 0
-    zoneRedundant: false
   }
 }
 
@@ -84,13 +72,8 @@ resource sites_fh_clc3_example_name_resource 'Microsoft.Web/sites@2022-03-01' = 
     hyperV: false
     vnetRouteAllEnabled: false
     siteConfig: {
-      numberOfWorkers: 1
       linuxFxVersion: 'JAVA|11'
-      acrUseManagedIdentityCreds: false
       alwaysOn: false
-      http20Enabled: false
-      functionAppScaleLimit: 200
-      minimumElasticInstanceCount: 0
     }
     scmSiteAlsoStopped: false
     clientAffinityEnabled: false
