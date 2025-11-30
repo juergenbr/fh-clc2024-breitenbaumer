@@ -5,12 +5,9 @@ resource databaseAccounts_resource 'Microsoft.DocumentDB/databaseAccounts@2022-0
   name: cosmosdb_name
   location: location
   kind: 'GlobalDocumentDB'
-  identity: {
-    type: 'None'
-  }
-  
   properties: {
     enableFreeTier: false
+    databaseAccountOfferType: 'Standard'
     consistencyPolicy: {
       defaultConsistencyLevel: 'Eventual'
     }
@@ -21,7 +18,11 @@ resource databaseAccounts_resource 'Microsoft.DocumentDB/databaseAccounts@2022-0
         isZoneRedundant: false
       }
     ]
-    databaseAccountOfferType: 'Standard'
+    capabilities: [
+      {
+        name: 'EnableServerless'
+      }
+    ]
   }
 }
 
